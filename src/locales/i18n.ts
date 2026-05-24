@@ -3,6 +3,14 @@ import { initReactI18next } from 'react-i18next'
 import enCommon from './en/common'
 import zhCommon from './zh/common'
 
+function getInitialLanguage() {
+  if (typeof window === 'undefined') {
+    return 'zh'
+  }
+
+  return window.localStorage.getItem('terraflux-language') === 'en' ? 'en' : 'zh'
+}
+
 const resources = {
   zh: { common: zhCommon },
   en: { common: enCommon },
@@ -10,7 +18,7 @@ const resources = {
 
 void i18n.use(initReactI18next).init({
   resources,
-  lng: 'zh',
+  lng: getInitialLanguage(),
   fallbackLng: 'en',
   defaultNS: 'common',
   interpolation: {

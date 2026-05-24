@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600&family=Sora:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +6,13 @@
 
 :root {
   color-scheme: dark;
+  --color-ink: #080b0d;
+  --color-void: #11161b;
+  --color-mist: #ebe6da;
+  --color-stone: #8f9691;
+  --color-river: #6d8a92;
+  --color-gold: #b18b54;
+  --panel-border: rgba(255, 255, 255, 0.08);
 }
 
 html {
@@ -15,12 +22,27 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background:
-    radial-gradient(circle at top, rgba(90, 175, 255, 0.08), transparent 28%),
-    radial-gradient(circle at bottom, rgba(143, 122, 66, 0.08), transparent 24%),
-    #030508;
-  color: #f7fbff;
-  font-family: 'Sora', 'Noto Sans SC', sans-serif;
+    radial-gradient(circle at 16% 18%, rgba(109, 138, 146, 0.12), transparent 0 28%),
+    radial-gradient(circle at 78% 16%, rgba(177, 139, 84, 0.08), transparent 0 20%),
+    linear-gradient(180deg, rgba(17, 22, 27, 0.95), rgba(8, 11, 13, 1)),
+    var(--color-ink);
+  color: var(--color-mist);
+  font-family: 'Manrope', 'Noto Sans SC', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
 }
 
 * {
@@ -32,7 +54,10 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input,
+textarea,
+select {
   font: inherit;
 }
 
@@ -40,11 +65,73 @@ button {
   min-height: 100vh;
 }
 
+::selection {
+  background: rgba(177, 139, 84, 0.26);
+  color: #f7f3eb;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .ambient-line {
+    position: relative;
+  }
+
+  .ambient-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(177, 139, 84, 0.55), transparent);
+  }
+
+  .glass-panel {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+    border: 1px solid var(--panel-border);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+    backdrop-filter: blur(22px);
+  }
+
+  .metal-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .metal-sheen::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-130%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.02) 24%,
+      rgba(255, 255, 255, 0.22) 50%,
+      rgba(255, 255, 255, 0.02) 76%,
+      transparent 100%
+    );
+    animation: sheen 5.4s linear infinite;
+  }
+}
+
 @media (max-width: 768px) {
-  body {
-    background:
-      radial-gradient(circle at top, rgba(90, 175, 255, 0.06), transparent 30%),
-      radial-gradient(circle at bottom, rgba(143, 122, 66, 0.06), transparent 24%),
-      #030508;
+  body::before {
+    opacity: 0.05;
   }
 }

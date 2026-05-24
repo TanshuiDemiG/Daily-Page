@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export function useRotatingMessages(length: number, interval = 3200) {
+export function useRotatingMessages(length: number, interval = 5200) {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {

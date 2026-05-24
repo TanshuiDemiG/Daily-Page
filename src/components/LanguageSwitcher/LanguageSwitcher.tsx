@@ -17,8 +17,8 @@ function LanguageSwitcher() {
   }
 
   return (
-    <div className="pointer-events-auto fixed right-5 top-5 z-30 md:right-8 md:top-8">
-      <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 p-1.5 shadow-glow backdrop-blur-md">
+    <div className="pointer-events-auto">
+      <div className="glass-panel flex items-center gap-2 rounded-full p-1.5">
         {languages.map(({ value, labelKey }) => {
           const active = language === value
 
@@ -27,13 +27,14 @@ function LanguageSwitcher() {
               key={value}
               type="button"
               onClick={() => handleChange(value)}
-              className="relative rounded-full px-3 py-1.5 text-xs text-white/70 transition hover:text-white"
+              className="relative rounded-full px-3 py-1.5 text-xs tracking-[0.24em] text-white/64 transition hover:text-white"
               aria-pressed={active}
+              aria-label={t(`language.${labelKey}`)}
             >
               {active ? (
                 <motion.span
                   layoutId="language-pill"
-                  className="absolute inset-0 rounded-full border border-glow/30 bg-glow/10"
+                  className="absolute inset-0 rounded-full border border-gold/20 bg-white/[0.06]"
                   transition={{ type: 'spring', stiffness: 260, damping: 24 }}
                 />
               ) : null}

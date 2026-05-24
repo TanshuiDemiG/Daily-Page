@@ -1,37 +1,47 @@
 const enCommon = {
-  site: {
-    title: 'CarbSage',
-    tagline: 'A Digital Space for AI, Research and Growth',
-    subtitle: 'Documenting AI, thesis work, technical learning and personal growth',
-    body:
-      'CarbSage is an evolving digital studio for projects, research notes and the quiet traces of time.',
+  brand: {
+    name: 'Shanhai Journey',
+    english: 'TERRAFLUX',
+    kicker: 'Oriental Naturalism × AI Digital Laboratory × Growth Trajectory Space',
+  },
+  hero: {
+    marks: ['Mountain', 'Water', 'Wind', 'Time'],
+    subtitle: 'Documenting AI, Growth and Exploration Between Terrain and Flow.',
+    body: 'A person recording AI, growth and exploration between mountains, sea and time.',
+    note: 'Digital Retreat / Future Landscape Laboratory',
   },
   progress: {
     label: 'Growth Progress',
-    percentLabel: 'System maturity',
-    messages: [
-      'Building Projects...',
-      'Training Models...',
-      'Learning Systems...',
-      'Exploring Time...',
-    ],
+    descriptor: 'Life and systems are still under construction',
+    version: 'Phase 1 / Landing',
+    barLabel: 'Growth Trace',
   },
-  footer: {
-    github: 'GitHub (placeholder)',
-    email: 'Email (placeholder)',
-    builtWith: 'Built with React + Three.js',
+  status: {
+    label: 'Current Drift',
+    messages: [
+      'Building Systems...',
+      'Training Models...',
+      'Walking Through Mountains...',
+      'Exploring Time...',
+      'Documenting Growth...',
+    ],
   },
   language: {
     zh: '中文',
     en: 'English',
   },
-  time: {
-    year: 'Year',
-    month: 'Month',
-    day: 'Day',
-    hour: 'Hour',
-    wheelTitle: 'Ganzhi Wheel',
-    wheelSubtitle: 'Current temporal coordinate',
+  footer: {
+    github: 'GitHub',
+    email: 'Email',
+    builtWith: 'Built with React + Three.js',
+    note: 'Mountain / Water / Time / System',
+  },
+  topbar: {
+    note: 'AI Wanderer Lab',
+  },
+  ambient: {
+    left: 'Oriental Digital Retreat',
+    right: 'A slower future landscape laboratory',
   },
 }
 
