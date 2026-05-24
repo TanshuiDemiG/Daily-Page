@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600&family=Sora:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top, rgba(90, 175, 255, 0.08), transparent 28%),
+    radial-gradient(circle at bottom, rgba(143, 122, 66, 0.08), transparent 24%),
+    #030508;
+  color: #f7fbff;
+  font-family: 'Sora', 'Noto Sans SC', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  body {
+    background:
+      radial-gradient(circle at top, rgba(90, 175, 255, 0.06), transparent 30%),
+      radial-gradient(circle at bottom, rgba(143, 122, 66, 0.06), transparent 24%),
+      #030508;
+  }
+}
